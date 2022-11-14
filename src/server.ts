@@ -34,7 +34,6 @@ import { IError, IQuery, IRequest, IResponse } from './model';
       if (!query.image_url) throw new Error('No Image URL found')
       const { image_url } = query;
       const filteredImage: string = await filterImageFromURL(image_url);
-      // console.log({ filteredImage })
       response.sendFile(filteredImage, () => {
         deleteLocalFiles([filteredImage])
       })
